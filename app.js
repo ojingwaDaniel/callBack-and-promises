@@ -34,18 +34,22 @@ moveMe(btn,100,1000,()=>{
 
 
 /// USING PROMISE TO AVOID NESTED CALL BACKS
-let willBuyYouAPhone = new Promise((resolve, rejected)=>{
-  let grade  = Math.floor(Math.random()*10)
-  if(grade < 6){
-    rejected()
-  }else{
-    resolve()
-  }
-  console.log(grade)
+let willBuyYouAPhone = ()=>{
+  return new Promise((resolve, rejected) => {
+    let grade = Math.floor(Math.random() * 10);
+    if (grade < 6) {
+      rejected();
+    } else {
+      resolve();
+    }
+    console.log(grade);
+  });
+}
 
-})
-willBuyYouAPhone.then(()=>{
+willBuyYouAPhone()
+.then(()=>{
   console.log('congratulation we got you  a phone')
-}).catch(()=>{
+})
+.catch(()=>{
   console.log('sorry u did"nt make it to 6 so you cant have a new phone')
 })
