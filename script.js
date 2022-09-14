@@ -38,6 +38,14 @@ const website = (url)=>{
 }
 website('/users')
 .then((res)=>{
-    const id = res.
+    const id = res.userInput[0].id;
+    return website(`/users/${id}`);
 
+})
+.then((res)=>{
+    const posId = res.userInput.topPostId
+    return website(`/posts/${posId}`)
+})
+.then((res)=>{
+    console.log
 })
