@@ -73,7 +73,11 @@ const website = (url)=>{
       };
       let info= pages[url]
       if (info) {
-        resolve({status : 200},info)
+        resolve({
+          status : 200,
+          info
+
+        })
       } else {
         reject({status :'404 ERROR'})
       }
@@ -92,3 +96,13 @@ website('home').then((response)=>{
   console.log('status Code',response.status)
   console.log('REQUESTED FAILED')
 })
+website("about")
+  .then((response) => {
+    console.log("status Code ", response.status);
+    console.log("information", response.info);
+    console.log("REQUESTED WORKED");
+  })
+  .catch((response) => {
+    console.log("status Code", response.status);
+    console.log("REQUESTED FAILED");
+  });
