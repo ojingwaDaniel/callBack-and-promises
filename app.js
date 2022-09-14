@@ -90,19 +90,19 @@ const website = (url)=>{
 website('home').then((response)=>{
   console.log('status Code ', response.status)
   console.log("information", response.info);
-  console.log('REQUESTED WORKED')
+  console.log('REQUEST WORKED')
 })
 .catch((response)=>{
   console.log('status Code',response.status)
-  console.log('REQUESTED FAILED')
+  console.log('REQUEST FAILED')
 })
 website("about")
   .then((response) => {
     console.log("status Code ", response.status);
     console.log("information", response.info);
-    console.log("REQUESTED WORKED");
+    console.log("REQUEST  WORKED");
   })
   .catch((response) => {
     console.log("status Code", response.status);
-    console.log("REQUESTED FAILED");
+    console.log("REQUEST FAILED");
   });
