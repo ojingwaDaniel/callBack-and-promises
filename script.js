@@ -47,5 +47,5 @@ website('/users')
     return website(`/posts/${posId}`)
 })
 .then((res)=>{
-    console.log
+    console.log(res)
 })
