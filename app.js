@@ -19,7 +19,7 @@ const moveMe = (element,amount,delay,moveOn,failed)=>{
 moveMe(btn,100,1000,()=>{
   moveMe(btn,400,1000,()=>{
      moveMe(btn, 100, 1000, () => {
-       moveMe(btn, 700, 1000, () => {
+       moveMe(btn, 400, 1000, () => {
 
        },()=>{
         alert('cant move further')
@@ -29,4 +29,17 @@ moveMe(btn,100,1000,()=>{
 
 },()=>{
   alert('CANT MOVE MORE THAN THIS')
+})
+
+
+
+/// USING PROMISE TO AVOID NESTED CALL BACKS
+let willBuyYouAPhone = new Promise((resolve, rejected)=>{
+  let grade  = Math.floor(Math.random()*10)
+  if(grade < 6){
+    rejected()
+  }else{
+    resolve()
+  }
+
 })
