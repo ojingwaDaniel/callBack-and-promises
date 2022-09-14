@@ -53,3 +53,36 @@ willBuyYouAPhone()
 .catch(()=>{
   console.log('sorry u did"nt make it to 6 so you cant have a new phone')
 })
+// MORE ON PROMISE
+const website = (url)=>{
+  return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+      let pages = {
+        'home':[
+          {
+            values : ['integrity','honesty','diligence','hardWork'],
+            goals : ['to make youth who conquer pain to achieve their dream','to teach youth to love God']
+          }
+        ],
+        contact: [
+          {
+            'phone Number': '08101338296',
+            'facebook page': 'Ojingwa Daniel'
+          }
+        ]
+      };
+      const page= pages[url]
+      if (page) {
+        resolve({status : 200},page)
+      } else {
+        reject({status :'404 ERROR'})
+      }
+
+    }, 2000);
+
+  })
+  
+}
+website(response).then(()=>{
+  console.log('status Code ')
+})
