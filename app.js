@@ -71,9 +71,9 @@ const website = (url)=>{
           }
         ]
       };
-      const page= pages[url]
-      if (page) {
-        resolve({status : 200},page)
+      let info= pages[url]
+      if (info) {
+        resolve({status : 200},info)
       } else {
         reject({status :'404 ERROR'})
       }
@@ -83,6 +83,12 @@ const website = (url)=>{
   })
   
 }
-website(response).then(()=>{
-  console.log('status Code ')
+website('home').then((response)=>{
+  console.log('status Code ', response.status)
+  console.log("information", response.info);
+  console.log('REQUESTED WORKED')
+})
+.catch((response)=>{
+  console.log('status Code',response.status)
+  console.log('REQUESTED FAILED')
 })
