@@ -17,7 +17,15 @@ const moveMe = (element,amount,delay,moveOn,failed)=>{
 
 }
 moveMe(btn,100,1000,()=>{
-  
+  moveMe(btn,400,1000,()=>{
+     moveMe(btn, 100, 1000, () => {
+       moveMe(btn, 700, 1000, () => {
+
+       },()=>{
+        alert('cant move further')
+       });
+     });
+  })
 
 },()=>{
   alert('CANT MOVE MORE THAN THIS')
