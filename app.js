@@ -44,3 +44,8 @@ let willBuyYouAPhone = new Promise((resolve, rejected)=>{
   console.log(grade)
 
 })
+willBuyYouAPhone.then(()=>{
+  console.log('congratulation we got you  a phone')
+}).catch(()=>{
+  console.log('sorry u did"nt make it to 6 so you cant have a new phone')
+})
