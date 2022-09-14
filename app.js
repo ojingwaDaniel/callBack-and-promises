@@ -1,35 +1,35 @@
 let btn = document.querySelector('button')
 
-const moveMe = (element,amount,delay,moveOn,failed)=>{
-  setTimeout(()=>{
-    let bodyBoundary = document.body.clientWidth;
-    let currentLeft = element.getBoundingClientRect().left
-    let right = element.getBoundingClientRect().right
-    if (right + amount > bodyBoundary) {
-      failed()
-    } else {
-      element.style.transform = `translate(${currentLeft +  amount}px)`;
-      moveOn()
-    }
+const moveMe = (element,amount,delay)=>{
+  return new Promise((resolve,reject)=>{
+     setTimeout(() => {
+       let bodyBoundary = document.body.clientWidth;
+       let currentLeft = element.getBoundingClientRect().left;
+       let right = element.getBoundingClientRect().right;
+       if (right + amount > bodyBoundary) {
+         reject({bodyBoundary,currentLeft,right})
+       } else {
+         element.style.transform = `translate(${currentLeft + amount}px)`;
+         resolve()
+       }
+     }, delay);
 
-
-  },delay)
+  })
+ 
 
 }
-moveMe(btn,100,1000,()=>{
-  moveMe(btn,400,1000,()=>{
-     moveMe(btn, 100, 1000, () => {
-       moveMe(btn, 400, 1000, () => {
-
-       },()=>{
-        alert('cant move further')
-       });
-     });
+moveMe(btn, 200, 1000)
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .then(() => moveMe(btn, 200, 1000))
+  .catch(({bodyBoundary,currentLeft,right})=>{
+    console.log(`body Boundary : ${bodyBoundary}`)
+    console.log(`currentLeft : ${currentLeft} is too large for the space remaining`);
   })
-
-},()=>{
-  alert('CANT MOVE MORE THAN THIS')
-})
 
 
 
