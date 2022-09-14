@@ -49,3 +49,6 @@ website('/users')
 .then((res)=>{
     console.log(res)
 })
+.catch((res)=>{
+    console.log(res.status)
+})
