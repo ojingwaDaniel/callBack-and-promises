@@ -41,5 +41,6 @@ let willBuyYouAPhone = new Promise((resolve, rejected)=>{
   }else{
     resolve()
   }
+  console.log(grade)
 
 })
