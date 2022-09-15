@@ -26,7 +26,7 @@ moveMe(btn, 200, 1000)
   .then(() => moveMe(btn, 200, 1000))
   .then(() => moveMe(btn, 200, 1000))
   .then(() => moveMe(btn, 200, 1000))
-  .catch(({bodyBoundary,currentLeft,right})=>{
+  .catch(({bodyBoundary,currentLeft})=>{
     console.log(`body Boundary : ${bodyBoundary}`)
     console.log(`currentLeft : ${currentLeft} is too large for the space remaining`);
   })
